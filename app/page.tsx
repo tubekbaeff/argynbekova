@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import {
   ArrowRight,
   BarChart3,
@@ -13,6 +15,7 @@ import {
   Globe2,
   MapPinned,
   MenuSquare,
+  Moon,
   PackageCheck,
   QrCode,
   ScanLine,
@@ -20,6 +23,7 @@ import {
   ShoppingBag,
   Smartphone,
   Store,
+  Sun,
   Truck,
   Users,
   Utensils,
@@ -286,6 +290,26 @@ function ExternalButton({
 }
 
 export default function Home() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem('argynbektegi-theme');
+    const shouldUseDark = savedTheme === 'dark';
+
+    document.documentElement.classList.toggle('dark', shouldUseDark);
+    queueMicrotask(() => setIsDark(shouldUseDark));
+  }, []);
+
+  function toggleTheme() {
+    const nextThemeIsDark = !isDark;
+    setIsDark(nextThemeIsDark);
+    document.documentElement.classList.toggle('dark', nextThemeIsDark);
+    window.localStorage.setItem(
+      'argynbektegi-theme',
+      nextThemeIsDark ? 'dark' : 'light',
+    );
+  }
+
   return (
     <main className="min-h-screen overflow-x-hidden bg-background text-foreground">
       <div className="site-grid fixed inset-0 z-0 opacity-35" aria-hidden="true" />
@@ -293,14 +317,15 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
           <a href="#top" className="flex items-center gap-3" aria-label="К началу страницы">
-            <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-sm font-black text-primary-foreground shadow-[0_0_28px_var(--primary-glow)]">
-              А
-            </span>
-            <span className="leading-none">
-              <span className="block text-sm font-semibold tracking-tight">АРҒЫНБЕК ДОНЕР</span>
-              <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                ERP ecosystem
-              </span>
+            <span className="flex h-11 w-36 items-center rounded-lg bg-white px-2 shadow-sm ring-1 ring-black/8 sm:w-44">
+              <Image
+                src="/argynbektegi-doner-logo.png"
+                alt="Argynbektegi doner"
+                width={2034}
+                height={773}
+                priority
+                className="h-full w-full object-contain"
+              />
             </span>
           </a>
 
@@ -313,9 +338,22 @@ export default function Home() {
             <a className="transition-colors hover:text-foreground" href="#access">Доступ</a>
           </nav>
 
-          <ExternalButton href={links.login} className="h-9 px-4">
-            Войти <ExternalLink data-icon="inline-end" />
-          </ExternalButton>
+          <div className="flex items-center gap-2">
+            <Button
+              type="button"
+              size="icon-lg"
+              variant="outline"
+              onClick={toggleTheme}
+              aria-label={isDark ? 'Включить светлую тему' : 'Включить тёмную тему'}
+              title={isDark ? 'Светлая тема' : 'Тёмная тема'}
+              className="bg-card"
+            >
+              {isDark ? <Sun /> : <Moon />}
+            </Button>
+            <ExternalButton href={links.login} className="h-9 px-4">
+              Войти <ExternalLink data-icon="inline-end" />
+            </ExternalButton>
+          </div>
         </div>
       </header>
 
@@ -335,6 +373,10 @@ export default function Home() {
               </span>
               Система работает 24/7
             </Badge>
+
+            <p className="mb-5 text-sm font-semibold tracking-tight text-foreground">
+              Argynbektegi doner <span className="text-muted-foreground">· ERP ecosystem</span>
+            </p>
 
             <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
               Вся сеть донерных.
@@ -586,9 +628,17 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 py-10 lg:px-8">
           <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-center">
             <div className="flex items-center gap-3">
-              <span className="flex size-9 items-center justify-center rounded-lg bg-primary text-sm font-black text-primary-foreground">А</span>
+              <span className="flex h-12 w-40 items-center rounded-lg bg-white px-2 shadow-sm ring-1 ring-black/8">
+                <Image
+                  src="/argynbektegi-doner-logo.png"
+                  alt="Argynbektegi doner"
+                  width={2034}
+                  height={773}
+                  className="h-full w-full object-contain"
+                />
+              </span>
               <div>
-                <p className="text-sm font-medium">АРҒЫНБЕК ДОНЕР · ERP</p>
+                <p className="text-sm font-medium">Argynbektegi doner · ERP</p>
                 <p className="mt-1 text-xs text-muted-foreground">Единая операционная система сети</p>
               </div>
             </div>

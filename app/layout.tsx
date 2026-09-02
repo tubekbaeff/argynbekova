@@ -13,18 +13,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'АРҒЫНБЕК ДОНЕР — ERP-система сети',
+  title: 'Argynbektegi doner — ERP-система сети',
   description:
-    'Демонстрация модулей ERP-системы «АРҒЫНБЕК ДОНЕР»: управление филиалами, склад, персонал, QR-смены и онлайн-меню.',
+    'Демонстрация модулей ERP-системы «Argynbektegi doner»: управление филиалами, склад, персонал, QR-смены и онлайн-меню.',
   openGraph: {
-    title: 'АРҒЫНБЕК ДОНЕР — единая ERP-система',
+    title: 'Argynbektegi doner — единая ERP-система',
     description:
       'Пять продуктовых модулей для управления сетью — от центрального склада до заказа клиента.',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'АРҒЫНБЕК ДОНЕР — единая ERP-система',
+    title: 'Argynbektegi doner — единая ERP-система',
     description:
       'Пять продуктовых модулей для управления сетью — от центрального склада до заказа клиента.',
   },
