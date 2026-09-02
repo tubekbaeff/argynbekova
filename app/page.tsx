@@ -274,6 +274,7 @@ function ExternalButton({
     <Button
       size="lg"
       variant={variant}
+      nativeButton={false}
       className={className}
       render={
         <a
