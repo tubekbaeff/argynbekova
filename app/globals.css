@@ -1,0 +1,141 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Geist', 'Geist Fallback', Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', ui-monospace, monospace;
+  --font-heading: 'Geist', 'Geist Fallback', Arial, ui-sans-serif, system-ui, sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-surface: var(--surface);
+  --color-status: var(--status);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: oklch(0.13 0.012 55);
+  --foreground: oklch(0.965 0.012 80);
+  --card: oklch(0.17 0.013 55);
+  --card-foreground: oklch(0.965 0.012 80);
+  --popover: oklch(0.17 0.013 55);
+  --popover-foreground: oklch(0.965 0.012 80);
+  --primary: oklch(0.72 0.19 48);
+  --primary-foreground: oklch(0.16 0.02 40);
+  --secondary: oklch(0.225 0.015 55);
+  --secondary-foreground: oklch(0.93 0.012 80);
+  --muted: oklch(0.21 0.012 55);
+  --muted-foreground: oklch(0.68 0.018 70);
+  --accent: oklch(0.25 0.024 48);
+  --accent-foreground: oklch(0.96 0.012 80);
+  --destructive: oklch(0.68 0.19 25);
+  --border: oklch(0.3 0.014 55 / 72%);
+  --input: oklch(0.3 0.014 55);
+  --ring: oklch(0.72 0.19 48);
+  --chart-1: oklch(0.72 0.19 48);
+  --chart-2: oklch(0.7 0.12 145);
+  --chart-3: oklch(0.68 0.11 225);
+  --chart-4: oklch(0.72 0.13 80);
+  --chart-5: oklch(0.63 0.13 20);
+  --surface: oklch(0.15 0.012 55);
+  --status: oklch(0.76 0.17 150);
+  --primary-glow: oklch(0.72 0.19 48 / 22%);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.16 0.012 55);
+  --sidebar-foreground: oklch(0.965 0.012 80);
+  --sidebar-primary: oklch(0.72 0.19 48);
+  --sidebar-primary-foreground: oklch(0.16 0.02 40);
+  --sidebar-accent: oklch(0.225 0.015 55);
+  --sidebar-accent-foreground: oklch(0.93 0.012 80);
+  --sidebar-border: oklch(0.3 0.014 55 / 72%);
+  --sidebar-ring: oklch(0.72 0.19 48);
+}
+
+* {
+  border-color: var(--border);
+  outline-color: color-mix(in oklch, var(--ring) 50%, transparent);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Geist', 'Geist Fallback', Arial, ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in oklch, var(--primary) 45%, transparent);
+  color: var(--foreground);
+}
+
+.site-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklch, var(--border) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklch, var(--border) 55%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.section-label {
+  font-family: 'Geist Mono', 'Geist Mono Fallback', ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
