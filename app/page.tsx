@@ -313,9 +313,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen overflow-x-hidden bg-background text-foreground">
-      <div className="site-grid fixed inset-0 z-0 opacity-35" aria-hidden="true" />
-
-      <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:px-8">
           <a href="#top" className="flex items-center gap-3" aria-label="К началу страницы">
             <span className="flex h-11 w-36 items-center rounded-lg bg-white px-2 shadow-sm ring-1 ring-black/8 sm:w-44">
@@ -381,7 +379,7 @@ export default function Home() {
 
             <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-7xl">
               Вся сеть донерных.
-              <span className="block text-primary">В одной системе.</span>
+              <span className="block text-primary">В ОДНОЙ СИСТЕМЕ</span>
             </h1>
             <p className="mt-7 max-w-2xl text-pretty text-lg leading-8 text-muted-foreground sm:text-xl">
               Единая ERP-платформа связывает управление филиалами, складскую логистику,
@@ -443,14 +441,15 @@ export default function Home() {
 
       <section
         id="modules"
-        className="relative z-10 border-y border-border/70 bg-surface/70 py-20 lg:py-28"
+        className="relative z-10 py-20 lg:py-28"
       >
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mb-12 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
               <p className="section-label">Продуктовые модули</p>
               <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-[-0.035em] sm:text-4xl lg:text-5xl">
-                Пять рабочих пространств. Одна экосистема.
+                Пять рабочих пространств.
+                <span className="block text-primary">ОДНАЯ РАБОЧАЯ СИСТЕМА</span>
               </h2>
             </div>
             <p className="max-w-md text-sm leading-6 text-muted-foreground">
@@ -570,7 +569,7 @@ export default function Home() {
 
       <section
         id="access"
-        className="relative z-10 border-t border-border/70 bg-surface/70 py-20 lg:py-28"
+        className="relative z-10 py-20 lg:py-28"
       >
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[1fr_1.25fr] lg:items-end">
@@ -625,7 +624,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="relative z-10 border-t border-border/70 bg-background">
+      <footer className="relative z-10 bg-background">
         <div className="mx-auto max-w-7xl px-5 py-10 lg:px-8">
           <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-center">
             <div className="flex items-center gap-3">

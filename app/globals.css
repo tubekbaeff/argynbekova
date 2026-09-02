@@ -148,14 +148,6 @@ body {
   color: var(--foreground);
 }
 
-.site-grid {
-  background-image:
-    linear-gradient(to right, color-mix(in oklch, var(--border) 55%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklch, var(--border) 55%, transparent) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: linear-gradient(to bottom, black, transparent 88%);
-}
-
 .section-label {
   font-family: 'Geist Mono', 'Geist Mono Fallback', ui-monospace, monospace;
   font-size: 0.7rem;
